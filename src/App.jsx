@@ -316,11 +316,10 @@ function App() {
         setBarMessage("")
       })
 
-      audioref.current.addEventListener("canplay", () => {
-        resolved = true
+      audioref.current.addEventListener("error", () => {
         clearTimeout(timeout)
-
-        setBarMessage("")
+        resolved = true
+        setBarMessage("Unavailable")
       })
 
       if (isPlaying && audioref.current) {
